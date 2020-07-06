@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "installall": "echo Please wait... && start cmd /c \"yarn install\" && start cmd /c \"cd ./web && yarn install\" && start cmd /c \"cd ./Mobile && yarn install\"",
-    "runall": "echo Please wait... && start cmd /k (node ./index.js) && start cmd /k \"cd ./web && yarn start\" && start cmd /k \"cd ./Mobile && yarn start\" && echo Done"
+    "installall": "echo Please wait... && start cmd /c \"yarn install\" && start cmd /c \"cd ./frontend/web && yarn install\" && start cmd /c \"cd ./frontend/Mobile && yarn install\"",
+    "runall": "echo Please wait... && start cmd /k (node ./index.js) && start cmd /k \"cd ./frontend/web && yarn start\" && start cmd /k \"cd ./frontend/Mobile && yarn start\" && echo Done"
   },
   "repository": "https://github.com/sw2x-Developer/myprojects-template.git",
   "author": "sw2x-Developer <zaiadazagaz@gmail.com>",
