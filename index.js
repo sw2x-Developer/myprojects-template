@@ -3,8 +3,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const bodyParser = require('body-parser');
-const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -14,8 +12,8 @@ const MONGOURI = process.env.MONGOURI || "";
 app.use(cors());
 app.use(helmet());
 app.disable('etag');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(express.json());
+app.use(express.urlencoded({extended : false}));
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 50,
@@ -23,9 +21,6 @@ const limiter = rateLimit({
     headers: false
 });
 app.use(limiter);
-app.use(express.static('web/build' , {
-    extensions: ['html']
-}))
 
 if(MONGOURI != ""){
     mongoose.connect(MONGOURI , {useNewUrlParser: true , useUnifiedTopology: true , useCreateIndex: true});
